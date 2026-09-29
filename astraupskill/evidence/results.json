@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "executedTests": 6,
+  "cases": [
+    "zero_rows_is_not_found",
+    "one_row_returns_channel",
+    "multiple_rows_fails",
+    "rows_affected_failure_propagates",
+    "named_exec_failure_propagates",
+    "invalid_delete_is_rejected_before_SQL"
+  ],
+  "checks": [
+    {
+      "project": "_Organized Desktop/03 Master Projects/mastermatter",
+      "id": "f5bd710b171f",
+      "command": [
+        "python",
+        "mattermost/tests/crud-b02/run_channel_store_harness.py",
+        "--go",
+        "C:\\Users\\Owner\\Desktop\\AstraOrganized2\\astra-remaining-improvements\\batch-crud-upskill-20260921\\toolchains\\go1.27.1\\go\\bin\\go.exe"
+      ],
+      "cwd": "C:\\Users\\Owner\\Desktop\\AstraOrganized2\\astra-remaining-improvements\\stage\\f5bd710b171f",
+      "environmentOverrides": {},
+      "startedAt": "2026-09-22T01:18:09.273592+00:00",
+      "status": "complete",
+      "log": "crud-b02-go-harness-final.log",
+      "pid": 18760,
+      "exitCode": 0,
+      "passed": true,
+      "finishedAt": "2026-09-22T01:22:01.938526+00:00",
+      "elapsedSeconds": 232.55
+    }
+  ],
+  "limits": [
+    "Six Go subtests execute the exact extracted updateChannelT method and row-count helper with explicit SQL, model and error contracts.",
+    "The native Mattermost package test, PostgreSQL integration, model validation and unique-constraint classification were not executed.",
+    "Outer Update transaction finalization and public-channel propagation were reviewed in source only; the harness does not execute them."
+  ]
+}

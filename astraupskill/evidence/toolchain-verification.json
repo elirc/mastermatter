@@ -1,0 +1,7 @@
+{
+  "source": "https://go.dev/dl/go1.27.1.windows-amd64.zip",
+  "publishedChecksumSource": "https://go.dev/dl/",
+  "sha256": "a3911b5e0e1b1053f25ed0675f4c1c6aad1e2bfcf253df2b9be4caabd2edd95d",
+  "verified": true,
+  "executable": "C:\\Users\\Owner\\Desktop\\AstraOrganized2\\astra-remaining-improvements\\batch-crud-upskill-20260921\\toolchains\\go1.27.1\\go\\bin\\go.exe"
+}
