@@ -6,7 +6,7 @@ The repo describes Mattermost as Go plus React with PostgreSQL (`README.md:1-3`)
 
 Reconstructed local procedure:
 
-1. Install Go compatible with the server module and Node/npm compatible with the checked-in lockfiles; the server module declares Go `1.26.2` (`server/go.mod:1-3`), and the webapp uses npm package-lock files discovered in `webapp/package-lock.json` and `webapp/channels/package-lock.json`.
+1. Install Go compatible with the server module and Node/npm compatible with the checked-in lockfiles; the server module declares Go `1.26.2` (`server/go.mod:1-3`), and the webapp is an npm workspace (`webapp/package.json` `"workspaces"`, L87+) with a single lockfile at `webapp/package-lock.json` — `webapp/channels/` has no lockfile of its own.
 2. From `webapp/`, run `npm install`; the webapp README says workspace dependencies are installed from that folder (`webapp/README.md:5-23`).
 3. From `server/`, run `make start-docker` to start local development containers unless intentionally using `MM_NO_DOCKER=true` (`server/Makefile:247-255`).
 4. From `server/`, run `make run-server` for the Go server (`server/Makefile:602-609`).

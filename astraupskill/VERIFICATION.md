@@ -1,5 +1,7 @@
 # Verification record
 
+> **Status note (2026-10-06, frozen record).** The run described below (2026-09-22, exit code 0, six cases) is kept as recorded. A static re-check on 2026-10-06 — no Go toolchain, no test execution — confirmed: the staged helper and its call site are at `channel_store.go:898-906` and `:891`; `channel_store_update_test.go` contains `TestValidateChannelUpdateCount` with three subtests (`missing channel is a not found error`, `one updated row succeeds`, `unexpected multiple rows remains an error`) whose expected strings match `store.ErrNotFound.Error()` and the helper's `fmt.Errorf`; and the harness generates `TestUpdateChannelTContracts` with exactly the six subtests listed in `evidence/results.json`. Two links pointed at logs that were never committed and have been replaced with plain-text references. The machine-specific paths inside the JSON evidence files describe the original workspace, not this repository.
+
 Two checks are documented for this change. The native Mattermost follow-up is run from the server directory:
 
 ```text
@@ -7,7 +9,7 @@ cd mattermost/server
 go test ./channels/store/sqlstore -run TestValidateChannelUpdateCount -count=1
 ```
 
-The earlier native launch attempt from the workspace was blocked because the Go executable was unavailable; that historical failure is preserved in `checks/f5bd710b171f/crud-b02-go-test.log`. It is not a passing result and should not be confused with the portable harness.
+The earlier native launch attempt from the workspace was blocked because the Go executable was unavailable; that historical failure was recorded in a workspace log (`checks/f5bd710b171f/crud-b02-go-test.log`) that is **not tracked in this repository**. It is not a passing result and should not be confused with the portable harness.
 
 From this project root, the portable command is:
 
@@ -22,4 +24,4 @@ The portable harness also tests validation before SQL by presenting DeleteAt as 
 
 ## Captured execution
 
-Read the [Go output](evidence/crud-b02-go-harness-final.log), [command and six-case results](evidence/results.json), and [verified portable toolchain metadata](evidence/toolchain-verification.json). The earlier failed launch and incomplete-toolchain attempt remain separate workspace records. The successful run uses Go 1.27.1 from the checksum-verified official archive; no native Mattermost dependency suite was installed or claimed.
+Read the [command and six-case results](evidence/results.json) and [verified portable toolchain metadata](evidence/toolchain-verification.json). The raw Go output (`crud-b02-go-harness-final.log`, named in `results.json`) was not committed, so `results.json` is the only in-repo record of the run. The earlier failed launch and incomplete-toolchain attempt remain separate workspace records. The successful run uses Go 1.27.1 from the checksum-verified official archive; no native Mattermost dependency suite was installed or claimed.
